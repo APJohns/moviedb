@@ -25,11 +25,13 @@ class MoviesList extends PureComponent {
       input: this.text.value,
     });
     try {
-      const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=2d78e93594e3964f5a7589dbaedc9c39&language=en-US&query=${event.target.value}&page=1&include_adult=false`);
-      const movies = await res.json();
-      this.setState({
-        movies: movies.results,
-      });
+      if (this.text.value.length > 0) {
+        const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=2d78e93594e3964f5a7589dbaedc9c39&language=en-US&query=${event.target.value}&page=1&include_adult=false`);
+        const movies = await res.json();
+        this.setState({
+          movies: movies.results,
+        });
+      }
     } catch (e) {
       console.log(e);
     }
