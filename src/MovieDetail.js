@@ -49,18 +49,38 @@ const MovieWrapper = styled.div`
   padding-top: 50vh;
   background: url(${props => props.backdrop}) no-repeat;
   background-size: cover;
+
+  @media (max-width: 900px) {
+    padding-top: 0;
+  }
 `;
 
 const MovieInfo = styled.div`
-  background: white;
+  background: #eee;
   text-align: left;
   padding: 2rem 10%;
   display: flex;
   > div {
-    margin-left: 20px;
+    margin-left: 40px;
+    @media (max-width: 700px) {
+      margin-left: 0;
+      text-align: center;
+    }
   }
   img {
     position: relative;
     top: -5rem;
+
+    @media (max-width: 900px) {
+      top: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    align-items: center;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
   }
 `;
